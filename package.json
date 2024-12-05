@@ -1,10 +1,10 @@
 {
   "name": "react-native-auto",
-  "version": "0.0.1-beta0.1",
+  "version": "0.0.1-beta0.2",
   "description": "A script to set up React Native environment based on your OS",
-  "main": "bin/rni.js",
-  "scripts": {
-    "react-native-auto": "bin/rni.js"
+  "main": "bin/main.js",
+  "bin": {
+    "react-native-auto": "bin/main.js"
   },
   "repository": {
     "type": "git",
