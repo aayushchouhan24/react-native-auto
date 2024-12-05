@@ -1,6 +1,6 @@
 {
   "name": "react-native-auto",
-  "version": "0.0.1-beta0.3",
+  "version": "0.0.1-beta0.5",
   "description": "A script to set up React Native environment based on your OS",
   "main": "bin/main.js",
   "bin": {
