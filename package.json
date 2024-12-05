@@ -1,11 +1,16 @@
 {
-  "name": "react-native-init",
-  "version": "1.0.0-beta0.1",
+  "name": "react-native-auto",
+  "version": "0.0.1-beta0.1",
   "description": "A script to set up React Native environment based on your OS",
   "main": "bin/rni.js",
   "scripts": {
-    "react-native-init": "bin/rni.js"
+    "react-native-auto": "bin/rni.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aayushchouhan24/react-native-auto"
+  },
+  "homepage": "https://github.com/aayushchouhan24/react-native-auto#readme",
   "author": {
     "name": "Aayush Chouhan",
     "email": "aayushchouhan24@gmail.com"

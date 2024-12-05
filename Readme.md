@@ -1,7 +1,7 @@
-# React Native Init - React Native Environment Setup Script
+# React Native Auto - React Native Environment Setup Script
 
 
-**react-native-init** is an easy-to-use command-line tool that automates the setup of a React Native development environment for both macOS and Windows systems. It runs the appropriate React Native setup script based on your operating system, ensuring you have everything ready for mobile app development.
+**react-native-auto** is an easy-to-use command-line tool that automates the setup of a React Native development environment for both macOS and Windows systems. It runs the appropriate React Native setup script based on your operating system, ensuring you have everything ready for mobile app development.
 
 ## ✨ Features
 
@@ -14,7 +14,7 @@
 ## 📦 How to run
 
 ```bash
-npx react-native-init
+npx react-native-auto
 ```
 
 The script will automatically detect your operating system and run the corresponding React Native setup script.
@@ -75,7 +75,7 @@ We welcome contributions to enhance this tool! If you have ideas for new feature
 
 ## 📄 License
 
-`react-native-init` is licensed under the MIT License. For more information, refer to the [LICENSE](LICENSE) file.
+`react-native-auto` is licensed under the MIT License. For more information, refer to the [LICENSE](LICENSE) file.
 
 ## 🙌 Acknowledgements
 
