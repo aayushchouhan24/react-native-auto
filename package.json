@@ -1,0 +1,14 @@
+{
+  "name": "react-native-init",
+  "version": "1.0.0-beta0.1",
+  "description": "A script to set up React Native environment based on your OS",
+  "main": "bin/rni.js",
+  "scripts": {
+    "react-native-init": "bin/rni.js"
+  },
+  "author": {
+    "name": "Aayush Chouhan",
+    "email": "aayushchouhan24@gmail.com"
+  },
+  "license": "ISC"
+}
